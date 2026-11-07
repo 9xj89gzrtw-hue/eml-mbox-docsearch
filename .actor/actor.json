@@ -2,7 +2,7 @@
   "actorSpecification": 1,
   "name": "eml-mbox-invoice-contract-tin-extractor",
   "title": "Local-Safe Email & Archive Invoice, Contract & Tax ID Extractor",
-  "description": "Parse .eml and .mbox mail archives and turn invoices, contracts, acts and claims into a clean table: INN/KPP/OGRN, EU/UK VAT IDs, contract numbers, amounts, dates, counterparties, e-mails and phones. Runs inside your Apify account; no third-party OCR. Free tier + offline Archive Studio DocSearch Pro (TW1-DOC).",
+  "description": "Parse .eml and .mbox archives into a clean table: invoices, contracts, acts and claims with INN/KPP/OGRN, EU/UK VAT IDs, contract numbers, amounts, dates and counterparties. Runs inside your Apify account, no third-party OCR. Free tier + offline DocSearch Pro (TW1-DOC).",
   "version": "1.0",
   "buildTag": "latest",
   "input": "./INPUT_SCHEMA.json",
