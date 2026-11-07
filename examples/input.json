@@ -1,0 +1,9 @@
+{
+  "sourceUrls": [
+    "https://example.com/archive/invoices-2026.mbox"
+  ],
+  "maxMessages": 500,
+  "includeBody": false,
+  "includeOffer": true,
+  "requestTimeoutSecs": 30
+}

@@ -1,0 +1,40 @@
+{
+  "name": "eml-mbox-docsearch",
+  "version": "1.0.0",
+  "description": "Apify Actor that parses .eml/.mbox archives and extracts invoices, contracts, INN/KPP/OGRN, EU VAT IDs, amounts, dates and counterparties into a clean dataset.",
+  "type": "module",
+  "main": "src/run.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "node --test",
+    "smoke": "node src/main.js --eml examples/sample.eml"
+  },
+  "keywords": [
+    "apify",
+    "apify-actor",
+    "eml",
+    "mbox",
+    "email-parser",
+    "invoice",
+    "contract",
+    "inn",
+    "kpp",
+    "vat",
+    "tax-id",
+    "mime",
+    "data-extraction"
+  ],
+  "author": "9xj89gzrtw-hue",
+  "license": "MIT",
+  "homepage": "https://9xj89gzrtw-hue.github.io/docsearch/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/9xj89gzrtw-hue/eml-mbox-docsearch.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "apify": "^3.2.0"
+  }
+}

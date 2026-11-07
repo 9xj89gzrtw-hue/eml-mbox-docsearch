@@ -1,0 +1,71 @@
+{
+  "title": "Email archive input (.eml / .mbox)",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "emlText": {
+      "title": "Paste one .eml message",
+      "type": "string",
+      "description": "Raw RFC 822 text of a single e-mail, headers included. Paste it from Gmail → Show original, Outlook → Save as, or a .eml file.",
+      "editor": "textarea"
+    },
+    "mboxText": {
+      "title": "Paste an .mbox archive",
+      "type": "string",
+      "description": "Raw mbox text with `From ` separators. Paste it or upload it to the key-value store and use kvStoreKeys instead.",
+      "editor": "textarea"
+    },
+    "sourceUrls": {
+      "title": "URLs of .eml / .mbox files",
+      "type": "array",
+      "description": "Public links to raw mail files. The Actor downloads them into its own container; nothing is sent to a third party.",
+      "editor": "stringList",
+      "default": [],
+      "items": { "type": "string" }
+    },
+    "kvStoreKeys": {
+      "title": "Key-value store keys with mail archives",
+      "type": "array",
+      "description": "Names of records in the run's default key-value store that contain .eml/.mbox text. Use this for large archives instead of pasting.",
+      "editor": "stringList",
+      "default": [],
+      "items": { "type": "string" }
+    },
+    "maxMessages": {
+      "title": "Max messages per run",
+      "type": "integer",
+      "description": "Free tier is 500 messages. Raise it up to 10,000 for a bigger batch; the paid desktop app indexes archives of any size offline.",
+      "default": 500,
+      "minimum": 1,
+      "maximum": 10000
+    },
+    "includeBody": {
+      "title": "Include a body preview",
+      "type": "boolean",
+      "description": "Adds a short plain-text preview of the message body to every row. Turn it off if the archive contains sensitive text you do not want in the dataset.",
+      "default": false
+    },
+    "bodyPreviewChars": {
+      "title": "Body preview length (characters)",
+      "type": "integer",
+      "description": "Used only when includeBody is true.",
+      "default": 500,
+      "minimum": 0,
+      "maximum": 5000
+    },
+    "includeOffer": {
+      "title": "Include the Pro offer record",
+      "type": "boolean",
+      "description": "Adds one final record with the offline Archive Studio DocSearch Pro link (TW1-DOC) and the Plati.Market card.",
+      "default": true
+    },
+    "requestTimeoutSecs": {
+      "title": "Download timeout (seconds)",
+      "type": "integer",
+      "description": "Per-URL HTTP timeout.",
+      "default": 30,
+      "minimum": 5,
+      "maximum": 120
+    }
+  }
+}

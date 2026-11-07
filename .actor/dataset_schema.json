@@ -1,0 +1,132 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "type": "object",
+    "properties": {
+      "_type": {
+        "type": "string",
+        "description": "message | offer | error"
+      },
+      "message_index": {
+        "type": ["integer", "null"],
+        "description": "1-based message number in the run"
+      },
+      "source": {
+        "type": ["string", "null"],
+        "description": "URL, key or input field the message came from"
+      },
+      "source_type": {
+        "type": ["string", "null"],
+        "description": "url | kv | text"
+      },
+      "subject": {
+        "type": ["string", "null"],
+        "description": "Decoded Subject header"
+      },
+      "from": {
+        "type": ["string", "null"],
+        "description": "From header"
+      },
+      "to": {
+        "type": ["string", "null"],
+        "description": "To header"
+      },
+      "cc": {
+        "type": ["string", "null"],
+        "description": "Cc header"
+      },
+      "date": {
+        "type": ["string", "null"],
+        "description": "ISO timestamp from the Date header"
+      },
+      "doc_type": {
+        "type": "string",
+        "description": "invoice | contract | upd | act | claim | other"
+      },
+      "inn": {
+        "type": "array",
+        "description": "Russian INN values (10 or 12 digits)"
+      },
+      "kpp": {
+        "type": "array",
+        "description": "Russian KPP values"
+      },
+      "ogrn": {
+        "type": "array",
+        "description": "OGRN / OGRNIP values"
+      },
+      "vat_ids": {
+        "type": "array",
+        "description": "EU / UK VAT IDs"
+      },
+      "contract_numbers": {
+        "type": "array",
+        "description": "Contract, invoice and agreement numbers"
+      },
+      "total_amount": {
+        "type": ["object", "null"],
+        "description": "Largest amount found: { value, currency, raw }"
+      },
+      "amounts": {
+        "type": "array",
+        "description": "All money amounts with currency"
+      },
+      "dates": {
+        "type": "array",
+        "description": "All dates in ISO format"
+      },
+      "counterparties": {
+        "type": "array",
+        "description": "Legal entities and sole traders"
+      },
+      "emails": {
+        "type": "array",
+        "description": "E-mail addresses"
+      },
+      "phones": {
+        "type": "array",
+        "description": "Russian phone numbers"
+      },
+      "attachments": {
+        "type": "array",
+        "description": "Attachment filenames, MIME types and sizes"
+      },
+      "has_attachments": {
+        "type": "boolean",
+        "description": "True when the message has attachments"
+      },
+      "confidence": {
+        "type": "number",
+        "description": "Share of the 7 requisite groups that matched (0..1)"
+      },
+      "body_preview": {
+        "type": ["string", "null"],
+        "description": "Short plain-text preview when includeBody is enabled"
+      },
+      "error": {
+        "type": ["string", "null"],
+        "description": "Error text for an error record"
+      },
+      "offer": {
+        "type": "string",
+        "description": "One-line Pro offer repeated in every record"
+      }
+    }
+  },
+  "views": {
+    "documents": {
+      "title": "Documents",
+      "transformation": {
+        "fields": ["message_index", "date", "doc_type", "subject", "from", "total_amount", "contract_numbers", "inn"]
+      },
+      "display": { "component": "table" }
+    },
+    "tax_ids": {
+      "title": "Tax IDs",
+      "transformation": {
+        "fields": ["message_index", "counterparties", "inn", "kpp", "ogrn", "vat_ids"]
+      },
+      "display": { "component": "table" }
+    }
+  }
+}

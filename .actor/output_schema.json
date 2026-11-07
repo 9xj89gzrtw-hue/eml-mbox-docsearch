@@ -1,0 +1,31 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "E-mail archive extraction — output",
+  "description": "One row per message with document type, tax IDs, contract numbers, amounts, dates and counterparties, plus one offer record. Export as CSV or XLSX from the Apify Console.",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "All messages (JSON)",
+      "description": "Parsed messages, error records and the Pro offer record.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    },
+    "csv": {
+      "type": "string",
+      "title": "All messages (CSV)",
+      "description": "Dataset as CSV, ready for Excel / Google Sheets.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items?format=csv"
+    },
+    "xlsx": {
+      "type": "string",
+      "title": "All messages (XLSX)",
+      "description": "Dataset as a real Excel workbook.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items?format=xlsx"
+    },
+    "summary": {
+      "type": "string",
+      "title": "Run summary",
+      "description": "Message counts, tax ID / contract / amount coverage and document types.",
+      "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/SUMMARY"
+    }
+  }
+}
